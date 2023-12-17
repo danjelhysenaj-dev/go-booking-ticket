@@ -31,6 +31,13 @@ func main() {
 	//userName = "Tom"
 	//userTickets = 2
 	remainingTickets = remainingTickets - userTickets
+	var bookings [50]string
+	bookings[0] = firstName + "" + lastName
+
+	fmt.Printf("The whole array: %v\n", bookings)
+	fmt.Printf("The first value: %v\n", bookings[0])
+	fmt.Printf("Array type: %T\n", bookings)
+	fmt.Printf("Array length: %v\n", len(bookings))
 
 	fmt.Println("User", firstName, lastName, "booked", userTickets, "tickets", "You will recieve your tickets on mail box", email)
 	fmt.Println("The remaining tickets are:", remainingTickets)

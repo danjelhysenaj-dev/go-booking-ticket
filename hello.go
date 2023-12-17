@@ -36,6 +36,13 @@ func main() {
 
 		//userName = "Tom"
 		//userTickets = 2
+
+		// check if the user requested more then the remaning tickets on the booking
+		if userTickets > remainingTickets {
+			fmt.Printf("We only have %v tickets remaning, so you can't book %v tickets \n", remainingTickets, userTickets)
+			break
+		}
+
 		remainingTickets = remainingTickets - userTickets
 
 		// now working with dynamic list which will include whatever name surname on the bookings Slice lists in GO

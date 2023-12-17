@@ -1,13 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 	var conferenceName = "Go Conference"
 	const conferenceTickets = 50
 	var remainingTickets uint = 50
 	// we create slices in Go lang which is the abstraction of an array list
-	var bookings []string
+	bookings := []string{}
 
 	fmt.Println("hello, to", conferenceName, "booking application")
 	fmt.Println("We have a total of", conferenceTickets, "tickets and", remainingTickets, "are still available.")
@@ -36,7 +39,7 @@ func main() {
 		remainingTickets = remainingTickets - userTickets
 
 		// now working with dynamic list which will include whatever name surname on the bookings Slice lists in GO
-		bookings = append(bookings, firstName+""+lastName)
+		bookings = append(bookings, firstName+" "+lastName)
 
 		//fmt.Printf("The whole slice: %v\n", bookings)
 		//fmt.Printf("The first value: %v\n", bookings[0])
@@ -45,7 +48,15 @@ func main() {
 
 		fmt.Println("User", firstName, lastName, "booked", userTickets, "tickets", "You will recieve your tickets on mail box", email)
 		fmt.Println("The remaining tickets are:", remainingTickets)
-		fmt.Printf("These are all our bookings: %v\n", bookings)
+
+		// loop through the strings and print only the first String of the Slice entered
+		// The index is ignored by putting _
+		firstNames := []string{}
+		for _, booking := range bookings {
+			var names = strings.Fields(booking)
+			firstNames = append(firstNames, names[0])
+		}
+		fmt.Printf("The first names of bookings are: %v\n", firstNames)
 	}
 
 }

@@ -34,11 +34,15 @@ func main() {
 		fmt.Println("how many tickets do you want to order:")
 		fmt.Scan(&userTickets)
 
+		isValidName := len(firstName) >= 2 && len(lastName) >= 2
+		isValidEmail := strings.Contains(email, "@")
+		isValidTicketNumber := userTickets > 0 && userTickets <= remainingTickets
+
 		//userName = "Tom"
 		//userTickets = 2
 
 		// check if the user requested more then the remaning tickets on the booking
-		if userTickets <= remainingTickets {
+		if isValidName && isValidEmail && isValidTicketNumber {
 			remainingTickets = remainingTickets - userTickets
 
 			// now working with dynamic list which will include whatever name surname on the bookings Slice lists in GO
@@ -67,7 +71,17 @@ func main() {
 				break
 			}
 		} else {
-			fmt.Printf("We only have %v tickets remaning, so you can't book %v tickets \n", remainingTickets, userTickets)
+			if !isValidName {
+				fmt.Printf("first name or last name you entered is too short \n")
+			}
+			if !isValidEmail {
+				fmt.Printf("The email provided should have @ \n")
+			}
+			if !isValidTicketNumber {
+				fmt.Printf("Number of ticket you entered are invalid")
+			}
+			//fmt.Printf("Your input data are incorrect. Please try again! \n")
+			//fmt.Printf("We only have %v tickets remaning, so you can't book %v tickets \n", remainingTickets, userTickets)
 		}
 
 	}

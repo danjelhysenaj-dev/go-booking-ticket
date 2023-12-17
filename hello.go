@@ -6,6 +6,8 @@ func main() {
 	var conferenceName = "Go Conference"
 	const conferenceTickets = 50
 	var remainingTickets uint = 50
+	// we create slices in Go lang which is the abstraction of an array list
+	var bookings []string
 
 	fmt.Println("hello, to", conferenceName, "booking application")
 	fmt.Println("We have a total of", conferenceTickets, "tickets and", remainingTickets, "are still available.")
@@ -31,8 +33,9 @@ func main() {
 	//userName = "Tom"
 	//userTickets = 2
 	remainingTickets = remainingTickets - userTickets
-	var bookings [50]string
-	bookings[0] = firstName + "" + lastName
+
+	// now working with dynamic list which will include whatever name surname on the bookings Slice lists in GO
+	bookings = append(bookings, firstName+""+lastName)
 
 	fmt.Printf("The whole array: %v\n", bookings)
 	fmt.Printf("The first value: %v\n", bookings[0])

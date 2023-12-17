@@ -40,7 +40,7 @@ func main() {
 		// check if the user requested more then the remaning tickets on the booking
 		if userTickets > remainingTickets {
 			fmt.Printf("We only have %v tickets remaning, so you can't book %v tickets \n", remainingTickets, userTickets)
-			break
+			continue
 		}
 
 		remainingTickets = remainingTickets - userTickets
